@@ -18,19 +18,8 @@ const orderRoutes = require('./routes/order');
 const app = express();
 
 // db
-let connection;
-let siteUrl;
-if (process.env.NODE_ENV === "development") {
-  connection = "mongodb://127.0.0.1:27017/corisio";
-  siteUrl = process.env.SITE_URL;
-} else {
-  connection =
-    "mongodb+srv://stephanyemmitty:_Holla83626@cluster0.pb3wcml.mongodb.net/corislo";
-  siteUrl = process.env.PROD_SITE_URL;
-}
-
 mongoose
-    .connect(connection, {
+    .connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,
