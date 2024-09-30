@@ -24,6 +24,7 @@ exports.read = (req, res) => {
 };
 
 exports.create = (req, res) => {
+    console.log(req.body,  "fields---")
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
     form.parse(req, (err, fields, files) => {
